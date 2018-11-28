@@ -6,6 +6,8 @@
 package model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -106,6 +108,11 @@ public class CadastroContas implements Serializable {
     public Date getDataVencimento() {
         return dataVencimento;
     }
+    
+    public String getDataVencimentoString() {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        return formato.format(dataVencimento);
+    }
 
     public void setDataVencimento(Date dataVencimento) {
         this.dataVencimento = dataVencimento;
@@ -122,6 +129,10 @@ public class CadastroContas implements Serializable {
 
     public CadastroCredor getFkCredor() {
         return fkCredor;
+    }
+    
+    public int getFkCredorValor() {
+        return this.fkCredor.getId();
     }
 
     public void setFkCredor(CadastroCredor fkCredor) {
