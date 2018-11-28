@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      lang="pt-br"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <head jsf:id="head">
+        <!-- Required meta tags -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <title>Cadastro</title>
+        <!--Bootstraps CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+        <!--CSS-->
+        <link href="sources/css/estilos.css" type="text/css" rel="stylesheet"/>
+        <!--Fontes-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+    </head>
+    <body jsf:id="body">
+
+        <ui:composition>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="./"><span class="fas fa-piggy-bank navbar-topo__logo"></span> Cadastro de Pagamentos</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="./" class="active">
+                                <span class="fas fa-plus-square navbar-topo__icone"></span> Cadatros
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="fas fa-list-alt navbar-topo__icone"></span> Listagem <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="./listagem-credores.xhtml">Listar Credores</a></li>
+                                <li><a href="./listagem-contas.xhtml">Listar Contas</a></li>
+                                <li><a href="./listagem-pagamentos.xhtml">Listar Pagamentos</a></li>
+                            </ul>
+                        </li>
+                    </ul>               
+                </div>
+            </div>
+        </ui:composition>
+
+        <!--JQUERY-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!--JS Bootstraps-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!--JS Mascara-->
+        <script src="sources/js/jquery.maskedinput.min.js"></script>
+        <!-- JS -->
+        <script src="sources/js/tabs-cadastros.js"></script>
+        <script src="sources/js/mascara-cnpj.js"></script>
+
+    </body>
+</html>

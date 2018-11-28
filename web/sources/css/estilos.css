@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/11/2018, 09:24:32
+    Author     : elcior.carvalho
+*/
+
+/*
+ * Cores:
+ * Azul marinho: #053658
+ * Azul claro: #1D7CA9
+ * Azul acinzentado: #92B4BC
+ * Verde acinzentado: #99D59E
+ * Verde claro: #99DD89
+ */
+
+
+/***** NAVBAR TOPO *****/
+.navbar-topo {
+    background-color: #053658;
+}
+
+    .navbar-topo a {
+        color: #FFFFFF;
+    }
+
+    .navbar-topo .navbar-topo__logo {
+        color: #FFFFFF;
+    }
+
+.navbar-topo .nav>li>a:focus, 
+.navbar-topo .nav>li>a:hover,
+.navbar-topo .nav>li>a:active
+{
+    background-color: #1D7CA9;
+}
+
+ul.dropdown-menu {
+    background-color: #053658;
+}
+
+ul.dropdown-menu>li>a {
+    color: #FFFFFF;
+}
+
+ul.dropdown-menu>li>a:hover,
+ul.dropdown-menu>li>a:focus,
+ul.dropdown-menu>li>a:active 
+{
+    background-color: #1D7CA9;
+    color: #FFFFFF;
+}
+
+/***** CONTEUDO PRINCIPAL ******/
+.container-corpo {
+    margin-top: 65px;
+}
+
+.container-corpo__icone {
+    color: #99D59E;
+}
+
+/***** TABELAS DE LISTAGEM *****/
+.tabela__listagem th {
+    text-align: center;
+}
+
+.tabela__listagem--icones {
+    color: #99D59E;
+}

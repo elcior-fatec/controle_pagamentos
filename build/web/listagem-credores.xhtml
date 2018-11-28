@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      lang="pt-br"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <head jsf:id="head">
+        <!-- Required meta tags -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <title>Listagem Credores</title>
+        <!--Bootstraps CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+        <!--CSS-->
+        <link href="sources/css/estilos.css" type="text/css" rel="stylesheet"/>
+        <!--Fontes-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+    </head>
+    <body jsf:id="body">
+
+        <ui:composition template="/templates/layout-base.xhtml">
+            <ui:define name="container">
+                <h2 class="page-header"><span class="fas fa-user-tie container-corpo__icone"></span> Lista de Credores</h2>
+                <div class="table-responsive">
+                    <table class="tabela__listagem table table-striped table-bordered" jsf:id="tabela-credores">
+                        <thead>
+                            <th>Id do Credor</th>
+                            <th>Nome</th>
+                            <th>CNPJ</th>
+                            <th>Endereço</th>
+                            <th><span class="tabela__listagem--icones fas fa-edit"></span></th>
+                            <th><span class="tabela__listagem--icones fas fa-trash"></span></th>
+                        </thead>
+                        <form jsf:id="form-cadastro-credor">
+                            <c:forEach var="credor" items="#{cadastroCredorBean.credores}">
+                                <tr>
+                                    <td>#{credor.id}</td>
+                                    <td>#{credor.nome}</td>
+                                    <td>#{credor.cnpj}</td>
+                                    <td>#{credor.endereco}</td>
+                                    <td><a href="#" data-toggle="modal" data-target="#modal-#{credor.id}">Editar</a></td>
+                                    <td><a href="#" jsf:action="#{cadastroCredorBean.deletar(credor.id)}" >Apagar</a></td>
+                                </tr>
+
+                                <!--modal-->
+                                <div class="modal fade" id="modal-#{credor.id}" tabindex="-1" role="dialog" aria-labelledby="modal-editar-credor">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fas fa-times"></span></span></button>
+                                                <h4 class="modal-title" id="modal-editar-credor">
+                                                    <span class="fas fa-edit container-corpo__icone"></span> Editar Credor
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container-fluid">
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label>Id do Credor</label>
+                                                            <input class="form-control" type="text" jsf:value="#{credor.id}" disabled="disabled" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Nome</label>
+                                                            <input class="form-control" type="text" jsf:value="#{credor.nome}" required="required" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>CNPJ</label>
+                                                            <input class="form-control" type="text" jsf:value="#{credor.cnpj}" required="required"/>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Endereço</label>
+                                                            <input class="form-control" type="text" jsf:value="#{credor.endereco}" required="required"/>
+                                                        </div>   
+                                                        <div class="form-group">
+                                                            <a href="#" class="btn btn-primary" jsf:action="#{cadastroCredorBean.alterar(credor)}">Alterar <span class="fas fa-save"></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/modal-->
+                            </c:forEach>
+                        </form>
+                    </table>
+                    <a href="./" class="btn btn-primary">Cadastrar Novo <span class="fas fa-plus-square"></span></a>
+                </div> 
+            </ui:define>
+        </ui:composition>
+
+        <!--JQUERY-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!--JS Bootstraps-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!--JS Mascara-->
+        <script src="sources/js/jquery.maskedinput.min.js"></script>
+        <!-- JS -->
+        <script src="sources/js/tabs-cadastros.js"></script>
+        <script src="sources/js/mascara-cnpj.js"></script>
+
+    </body>
+</html>

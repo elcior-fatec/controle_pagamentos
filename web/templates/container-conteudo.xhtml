@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      lang="pt-br"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head jsf:id="head">
+        <!-- Required meta tags -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <title>Cadastro</title>
+        <!--Bootstraps CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+        <!--CSS-->
+        <link href="sources/css/estilos.css" type="text/css" rel="stylesheet"/>
+        <!--Fontes-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+    </head>
+    <body jsf:id="body">
+
+        <ui:composition>
+            <div class="row">                             
+                <!--conteudo-->
+                <div class="col-md-6 col-md-offset-3">
+                    <!-- nav-tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#credor" aria-controls="credor" role="tab" data-toggle="tab">Cadastro de Credor</a></li>
+                        <li role="presentation"><a href="#conta" aria-controls="conta" role="tab" data-toggle="tab">Cadastro de Conta</a></li>
+                        <li role="presentation"><a href="#pgto" aria-controls="pgto" role="tab" data-toggle="tab">Cadastro de Pagamento</a></li>
+                    </ul>
+
+                    <!-- tabs panel -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="credor" >
+                            <h1 class="page-header"><span class="fas fa-user-tie container-corpo__icone"></span> Cadastro de Credor</h1>                                
+                            <form jsf:id="form-cadastro-credor" class="container-fluid">
+                                <div>
+                                    <div class="form-group">
+                                        <label>Nome</label>
+                                        <input class="form-control" type="text" placeholder="Digite o nome completo" jsf:value="#{cadastroCredorBean.credor.nome}" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>CNPJ</label>
+                                        <input class="form-control" id="cnpj" type="text" placeholder="Digite o CNPJ válido" jsf:value="#{cadastroCredorBean.credor.cnpj}" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Endereço</label>
+                                        <input class="form-control" type="text" placeholder="Digite o endereço" jsf:value="#{cadastroCredorBean.credor.endereco}" required="required"/>
+                                    </div>   
+                                    <div class="form-group">
+                                        <a href="#credor" class="btn btn-primary" jsf:action="#{cadastroCredorBean.inserir()}">Cadastrar <span class="fas fa-save"></span></a>
+                                        <button type="reset" class="btn btn-primary">Limpar <span class="fas fa-eraser"></span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="conta" >
+                            <h1 class="page-header"><span class="fas fa-file-invoice-dollar container-corpo__icone"></span> Cadastro de Conta</h1>
+                            <form jsf:id="form-cadastro-conta" class="container-fluid">
+                                <div>
+                                    <div class="form-group">
+                                        <label>Id do Credor</label>
+                                        <input class="form-control" type="text" placeholder="Digite o Id do Credor" jsf:value="#{cadastroContasBean.conta.id}" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Descrição</label>
+                                        <input class="form-control" type="text" placeholder="Digite a Descrição do crédito" jsf:value="#{cadastroContasBean.conta.descricao}" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Valor</label>
+                                        <input class="form-control" type="text" placeholder="Digite o valor da conta" jsf:value="#{cadastroContasBean.conta.valor}" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Data de Vencimento</label>
+                                        <input class="form-control" type="date" placeholder="Digite uma data para vencimento da conta" jsf:value="#{cadastroContasBean.conta.dataVencimento}" required="required"/>
+                                    </div>                                                             
+                                    <div class="form-group">
+                                        <a href="#conta" class="btn btn-primary" jsf:action="#{cadastroContasBean.inserir()}">Cadastrar <span class="fas fa-save"></span></a>
+                                        <button type="reset" class="btn btn-primary">Limpar <span class="fas fa-eraser"></span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="pgto" >
+                            <h1 class="page-header"><span class="fas fa-check-square container-corpo__icone"></span> Cadastro de Pagamento</h1>
+                            <form jsf:id="form-cadastro-pgto" class="container-fluid">
+                                <div>
+                                    <div class="form-group">
+                                        <label>Código da Conta</label>
+                                        <input class="form-control" type="text" placeholder="Digite o código da conta" jsf:value="#{cadastroPgtoBean.pgto.fkConta}" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Valor Pago</label>
+                                        <input class="form-control" type="text" placeholder="Digite o valor debitado" jsf:value="#{cadastroPgtoBean.pgto.vrPago}" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Data de Pagamento</label>
+                                        <input class="form-control" type="date" placeholder="Digite a data do débito" jsf:value="#{tbInfoUsuariosBeans.infoUsuario.sobrenome}" required="required" />
+                                    </div>                                                            
+                                    <div class="form-group">
+                                        <a href="#pgto" class="btn btn-primary" jsf:action="#{tbInfoUsuariosBeans.inserir()}">Cadastrar <span class="fas fa-save"></span></a>
+                                        <button type="reset" class="btn btn-primary">Limpar <span class="fas fa-eraser"></span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div><!--/conteudo-->                
+            </div>
+        </ui:composition>
+
+        <!--JQUERY-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!--JS Bootstraps-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!--JS Mascara-->
+        <script src="sources/js/jquery.maskedinput.min.js"></script>
+        <!-- JS -->
+        <script src="sources/js/tabs-cadastros.js"></script>
+        <script src="sources/js/mascara-cnpj.js"></script>
+
+    </body>
+</html>
