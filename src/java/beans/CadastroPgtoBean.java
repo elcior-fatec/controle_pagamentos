@@ -6,7 +6,6 @@
 package beans;
 
 import controller.CadastroPgtoJpaController;
-import controller.exceptions.IllegalOrphanException;
 import controller.exceptions.NonexistentEntityException;
 import java.io.Serializable;
 import java.util.List;

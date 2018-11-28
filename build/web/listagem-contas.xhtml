@@ -10,7 +10,7 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-        <title>Listagem Credores</title>
+        <title>Listagem de Contas</title>
         <!--Bootstraps CSS-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
         <!--CSS-->
@@ -24,7 +24,7 @@
             <ui:define name="container">
                 <h2 class="page-header"><span class="fas fa-file-invoice-dollar container-corpo__icone"></span> Lista de Contas</h2>
                 <div class="table-responsive">
-                    <table class="tabela__listagem table table-striped table-bordered" jsf:id="tabela-credores">
+                    <table class="tabela__listagem table table-striped table-bordered" jsf:id="tabela-contas">
                         <thead>
                             <th>Código da Conta</th>
                             <th>Id do Credor</th>
@@ -38,21 +38,23 @@
                             <c:forEach var="conta" items="#{cadastroContasBean.contas}">
                                 <tr>
                                     <td>#{conta.id}</td>
-                                    <td>#{conta.fkCredor}</td>
+                                    <td>#{conta.fkCredorValor}</td>
                                     <td>#{conta.descricao}</td>
                                     <td>#{conta.valor}</td>
-                                    <td>#{conta.dataVencimento}</td>
+                                    <td>#{conta.dataVencimentoString}</td>
                                     <td><a href="#" data-toggle="modal" data-target="#modal-#{conta.id}">Editar</a></td>
                                     <td><a href="#" jsf:action="#{cadastroContasBean.deletar(conta.id)}" >Apagar</a></td>
                                 </tr>
 
                                 <!--modal-->
-                                <div class="modal fade" id="modal-#{credor.id}" tabindex="-1" role="dialog" aria-labelledby="modal-editar-credor">
+                                <div class="modal fade" id="modal-#{conta.id}" tabindex="-1" role="dialog" aria-labelledby="modal-editar-conta">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fas fa-times"></span></span></button>
-                                                <h4 class="modal-title" id="modal-editar-credor">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                                    <span aria-hidden="true"><span class="fas fa-times"></span></span>
+                                                </button>
+                                                <h4 class="modal-title" id="modal-editar-conta">
                                                     <span class="fas fa-edit container-corpo__icone"></span> Editar Conta
                                                 </h4>
                                             </div>
@@ -61,11 +63,11 @@
                                                     <div>
                                                         <div class="form-group">
                                                             <label>Id da Conta</label>
-                                                            <input class="form-control" type="text" jsf:value="#{conta.id}" required="required" />
+                                                            <input class="form-control" type="text" jsf:value="#{conta.id}" disabled="disable" />
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Código do Credor</label>
-                                                            <input class="form-control" type="text" jsf:value="#{conta.fkCredor}" disabled="disable" />
+                                                            <input class="form-control" type="text" jsf:value="#{conta.fkCredorValor}" disabled="disable" />
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Descrição</label>
@@ -77,7 +79,7 @@
                                                         </div>   
                                                         <div class="form-group">
                                                             <label>Data de Vencimento</label>
-                                                            <input class="form-control" type="text" jsf:value="#{conta.dataVencimento}" required="required"/>
+                                                            <input class="form-control" type="text" jsf:value="#{conta.dataVencimentoString}" required="required"/>
                                                         </div>   
                                                         <div class="form-group">
                                                             <a href="#" class="btn btn-primary" jsf:action="#{cadastroContasBean.alterar()}">Alterar <span class="fas fa-save"></span></a>
