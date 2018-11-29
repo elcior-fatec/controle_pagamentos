@@ -49,17 +49,16 @@ public class CadastroCredorBean implements Serializable
     
     public void inserir() {
         dao.create(credor);
-        credor.setNome(null);
-        credor.setCnpj(null);
-        credor.setEndereco(null);
     }
     
     public void consultar(int id) {
         this.credor = dao.findCadastroCredor(id);
     }
     
-    public void alterar(CadastroCredor credor) {
+    public void alterar(int id) {
         try {
+            this.consultar(id);
+            System.out.println(credor);
             dao.edit(credor);
         } catch (Exception ex) {
             Logger.getLogger(CadastroCredorBean.class.getName()).log(Level.SEVERE, null, ex);

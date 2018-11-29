@@ -95,6 +95,9 @@ public class CadastroCredorJpaController implements Serializable {
             cadastroContasCollectionNew = attachedCadastroContasCollectionNew;
             cadastroCredor.setCadastroContasCollection(cadastroContasCollectionNew);
             cadastroCredor = em.merge(cadastroCredor);
+            
+            System.out.println(cadastroCredor);
+            
             for (CadastroContas cadastroContasCollectionNewCadastroContas : cadastroContasCollectionNew) {
                 if (!cadastroContasCollectionOld.contains(cadastroContasCollectionNewCadastroContas)) {
                     CadastroCredor oldFkCredorOfCadastroContasCollectionNewCadastroContas = cadastroContasCollectionNewCadastroContas.getFkCredor();

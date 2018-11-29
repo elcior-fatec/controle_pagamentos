@@ -130,7 +130,11 @@ public class CadastroCredor implements Serializable {
 
     @Override
     public String toString() {
-        return "model.CadastroCredor[ id=" + id + " ]";
+        //return "model.CadastroCredor[ id=" + id + " ]";
+        return "Id: " + this.id +
+                "; Nome: " + this.nome +
+                "; CNPJ: " + this.cnpj +
+                "; Endereco: " + this.endereco;
     }
     
 }
