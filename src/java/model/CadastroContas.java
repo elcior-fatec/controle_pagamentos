@@ -7,6 +7,10 @@ package model;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+<<<<<<< HEAD
+=======
+import java.time.format.DateTimeFormatter;
+>>>>>>> 40f4b776891bfbd905079924e84650111319fd2c
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
