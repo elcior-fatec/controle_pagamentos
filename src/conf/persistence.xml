@@ -7,10 +7,10 @@
     <class>model.CadastroContas</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/controle_pagamentos"/>
-      <property name="javax.persistence.jdbc.user" value="elcior_ftc"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://cad-proj.postgres.uhserver.com:5432/cad_proj"/>
+      <property name="javax.persistence.jdbc.user" value="elcior_fatec"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="2840481623010"/>
+      <property name="javax.persistence.jdbc.password" value="a4@H*5P.9W2."/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>

@@ -25,7 +25,6 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author elcior.carvalho
  */
 @Entity
-@Table(name = "cadastro_credor", catalog = "controle_pagamentos", schema = "public")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "CadastroCredor.findAll", query = "SELECT c FROM CadastroCredor c")

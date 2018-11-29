@@ -28,7 +28,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author elcior.carvalho
  */
 @Entity
-@Table(name = "cadastro_pgto", catalog = "controle_pagamentos", schema = "public")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "CadastroPgto.findAll", query = "SELECT c FROM CadastroPgto c")
@@ -45,7 +44,7 @@ public class CadastroPgto implements Serializable {
     
     @Basic(optional = false)
     @Column(name = "vr_pago")
-    private BigInteger vrPago;
+    private double vrPago;
     
     @Basic(optional = false)
     @Column(name = "data_pgto")
@@ -63,7 +62,7 @@ public class CadastroPgto implements Serializable {
         this.id = id;
     }
 
-    public CadastroPgto(Integer id, BigInteger vrPago, Date dataPgto) {
+    public CadastroPgto(Integer id, double vrPago, Date dataPgto) {
         this.id = id;
         this.vrPago = vrPago;
         this.dataPgto = dataPgto;
@@ -77,11 +76,11 @@ public class CadastroPgto implements Serializable {
         this.id = id;
     }
 
-    public BigInteger getVrPago() {
+    public double getVrPago() {
         return vrPago;
     }
 
-    public void setVrPago(BigInteger vrPago) {
+    public void setVrPago(double vrPago) {
         this.vrPago = vrPago;
     }
 

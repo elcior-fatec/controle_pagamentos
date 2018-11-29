@@ -7,7 +7,6 @@ package model;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -33,7 +32,6 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author elcior.carvalho
  */
 @Entity
-@Table(name = "cadastro_contas", catalog = "controle_pagamentos", schema = "public")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "CadastroContas.findAll", query = "SELECT c FROM CadastroContas c")
