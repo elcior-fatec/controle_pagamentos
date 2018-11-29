@@ -7,10 +7,6 @@ package model;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-<<<<<<< HEAD
-=======
-import java.time.format.DateTimeFormatter;
->>>>>>> 40f4b776891bfbd905079924e84650111319fd2c
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -25,7 +21,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
