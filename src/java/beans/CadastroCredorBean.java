@@ -28,9 +28,10 @@ public class CadastroCredorBean implements Serializable
     private CadastroCredor credor;
     private List<CadastroCredor> credores;
     private final CadastroCredorJpaController dao;
-    
+    private int index;
+            
     public CadastroCredorBean() {        
-        credor = new CadastroCredor();        
+        credor = new CadastroCredor();
         dao = new CadastroCredorJpaController(javax.persistence.Persistence.createEntityManagerFactory("controle_pagamentosPU"));
     }
     
@@ -38,32 +39,44 @@ public class CadastroCredorBean implements Serializable
         return credor;
     }
     
-    public void setCredor(CadastroCredor credor) {
-        this.credor = credor;
-    }
-    
     public List<CadastroCredor> getCredores() {
        this.credores = dao.findCadastroCredorEntities();
        return credores;
     }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+    
+    public String consultaPeloIndex(){
+        this.credor = dao.findCadastroCredor(this.index);
+        return "listagem-credores-2";
+    }
     
     public void inserir() {
         dao.create(credor);
+        credor.setNome(null);
+        credor.setCnpj(null);
+        credor.setEndereco(null);
     }
     
     public void consultar(int id) {
         this.credor = dao.findCadastroCredor(id);
     }
     
-    public void alterar(int id) {
-        try {
-            this.consultar(id);
-            System.out.println(credor);
+    public void alterar() {
+        try {          
             dao.edit(credor);
         } catch (Exception ex) {
-            Logger.getLogger(CadastroCredorBean.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastroContasBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
    
     public List<CadastroCredor> listar() {
         return dao.findCadastroCredorEntities();

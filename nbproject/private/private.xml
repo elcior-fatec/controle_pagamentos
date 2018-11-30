@@ -4,8 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/elcior.carvalho/Documents/NetBeansProjects/Controle_Pagamentos/controle_pagamentos/src/java/model/CadastroContas.java</file>
+            <file>file:/C:/Users/elcior.carvalho/Documents/NetBeansProjects/Controle_Pagamentos/controle_pagamentos/src/java/model/CadastroCredor.java</file>
+            <file>file:/C:/Users/elcior.carvalho/Documents/NetBeansProjects/Controle_Pagamentos/controle_pagamentos/src/java/beans/CadastroCredorBean.java</file>
             <file>file:/C:/Users/elcior.carvalho/Documents/NetBeansProjects/Controle_Pagamentos/controle_pagamentos/src/java/model/CadastroPgto.java</file>
-            <file>file:/C:/Users/elcior.carvalho/Documents/NetBeansProjects/Controle_Pagamentos/controle_pagamentos/web/templates/container-conteudo.xhtml</file>
         </group>
     </open-files>
 </project-private>

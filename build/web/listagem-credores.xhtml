@@ -36,53 +36,13 @@
                         <form jsf:id="form-cadastro-credor">
                             <c:forEach var="credor" items="#{cadastroCredorBean.credores}">
                                 <tr>
-                                    <td>#{credor.id}</td>
-                                    <td>#{credor.nome}</td>
-                                    <td>#{credor.cnpj}</td>
-                                    <td>#{credor.endereco}</td>
-                                    <td><a href="#" data-toggle="modal" data-target="#modal-#{credor.id}">Editar</a></td>
-                                    <td><a href="#" jsf:action="#{cadastroCredorBean.deletar(credor.id)}" >Apagar</a></td>
+                                    <td><input class="form-control" type="text" jsf:value="#{credor.id}" disabled="disabled" /></td>
+                                    <td><input class="form-control" type="text" jsf:value="#{credor.nome}" required="required" /></td>
+                                    <td><input class="form-control" type="text" jsf:value="#{credor.cnpj}" required="required" /></td>
+                                    <td><input class="form-control" type="text" jsf:value="#{credor.endereco}" required="required" /></td>
+                                    <td><button href="#" class="btn btn-primary" jsf:action="#{cadastroCredorBean.alterar()}">Editar</button></td>
+                                    <td><button href="#" class="btn btn-primary" jsf:action="#{cadastroCredorBean.deletar(credor.id)}">Apagar</button></td>
                                 </tr>
-
-                                <!--modal-->
-                                <div class="modal fade" id="modal-#{credor.id}" tabindex="-1" role="dialog" aria-labelledby="modal-editar-credor">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fas fa-times"></span></span></button>
-                                                <h4 class="modal-title" id="modal-editar-credor">
-                                                    <span class="fas fa-edit container-corpo__icone"></span> Editar Credor
-                                                </h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="container-fluid">
-                                                    <div>
-                                                        <div class="form-group">
-                                                            <label>Id do Credor</label>
-                                                            <input class="form-control" type="text" jsf:value="#{credor.id}" disabled="disabled" />
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Nome</label>
-                                                            <input class="form-control" type="text" jsf:value="#{credor.nome}" required="required" />
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>CNPJ</label>
-                                                            <input class="form-control" type="text" jsf:value="#{credor.cnpj}" required="required"/>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Endereço</label>
-                                                            <input class="form-control" type="text" jsf:value="#{credor.endereco}" required="required"/>
-                                                        </div>   
-                                                        <div class="form-group">
-                                                            <a href="#" class="btn btn-primary" jsf:action="#{cadastroCredorBean.alterar(credor.id)}">Alterar <span class="fas fa-save"></span></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/modal-->
                             </c:forEach>
                         </form>
                     </table>
@@ -98,7 +58,6 @@
         <!--JS Mascara-->
         <script src="sources/js/jquery.maskedinput.min.js"></script>
         <!-- JS -->
-        <script src="sources/js/tabs-cadastros.js"></script>
         <script src="sources/js/mascara-cnpj.js"></script>
 
     </body>
