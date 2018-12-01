@@ -127,10 +127,6 @@ public class CadastroContas implements Serializable {
     public CadastroCredor getFkCredor() {
         return fkCredor;
     }
-    
-    public int getFkCredorValor() {
-        return this.fkCredor.getId();
-    }
 
     public void setFkCredor(CadastroCredor fkCredor) {
         this.fkCredor = fkCredor;
@@ -155,10 +151,17 @@ public class CadastroContas implements Serializable {
         }
         return true;
     }
-
+    
     @Override
     public String toString() {
-        return "model.CadastroContas[ id=" + id + " ]";
+        return "CadastroContas{" 
+                + "id=" + id 
+                + ", descricao=" + descricao 
+                + ", valor=" + valor 
+                + ", dataVencimento=" + dataVencimento 
+                + ", cadastroPgtoCollection=" + cadastroPgtoCollection 
+                + ", fkCredor=" + fkCredor + '}';
     }
+    
     
 }

@@ -28,7 +28,6 @@ public class CadastroCredorBean implements Serializable
     private CadastroCredor credor;
     private List<CadastroCredor> credores;
     private final CadastroCredorJpaController dao;
-    private int index;
             
     public CadastroCredorBean() {        
         credor = new CadastroCredor();
@@ -43,19 +42,6 @@ public class CadastroCredorBean implements Serializable
        this.credores = dao.findCadastroCredorEntities();
        return credores;
     }
-
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-    }
-    
-    public String consultaPeloIndex(){
-        this.credor = dao.findCadastroCredor(this.index);
-        return "listagem-credores-2";
-    }
     
     public void inserir() {
         dao.create(credor);
@@ -68,6 +54,10 @@ public class CadastroCredorBean implements Serializable
         this.credor = dao.findCadastroCredor(id);
     }
     
+    public CadastroCredor retornaCredor(int id) {
+        return dao.findCadastroCredor(id);
+    }
+    
     public void alterar() {
         try {          
             dao.edit(credor);
@@ -75,8 +65,6 @@ public class CadastroCredorBean implements Serializable
             Logger.getLogger(CadastroContasBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
    
     public List<CadastroCredor> listar() {
         return dao.findCadastroCredorEntities();

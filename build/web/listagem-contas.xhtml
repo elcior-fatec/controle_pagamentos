@@ -38,12 +38,12 @@
                             <c:forEach var="conta" items="#{cadastroContasBean.contas}">
                                 <tr>
                                     <td>#{conta.id}</td>
-                                    <td>#{conta.fkCredorValor}</td>
+                                    <td>#{conta.fkCredor}</td>
                                     <td>#{conta.descricao}</td>
                                     <td>#{conta.valor}</td>
                                     <td>#{conta.dataVencimentoString}</td>
                                     <td><a href="#" data-toggle="modal" data-target="#modal-#{conta.id}">Editar</a></td>
-                                    <td><a href="#" jsf:action="#{cadastroContasBean.deletar(conta.id)}" >Apagar</a></td>
+                                    <td><a href="#" class="tbn btn-primary" disabled="disabled" jsf:action="#{cadastroContasBean.deletar(conta.id)}" >Apagar</a></td>
                                 </tr>
 
                                 <!--modal-->
@@ -93,6 +93,7 @@
                                 <!--/modal-->
                             </c:forEach>
                         </form>
+                        <small>*deleção desabilitada por questão de seguraça</small>
                     </table>
                     <a href="./" class="btn btn-primary">Cadastrar Novo <span class="fas fa-plus-square"></span></a>
                 </div> 

@@ -41,11 +41,12 @@
                                     <td><input class="form-control" type="text" jsf:value="#{credor.cnpj}" required="required" /></td>
                                     <td><input class="form-control" type="text" jsf:value="#{credor.endereco}" required="required" /></td>
                                     <td><button href="#" class="btn btn-primary" jsf:action="#{cadastroCredorBean.alterar()}">Editar</button></td>
-                                    <td><button href="#" class="btn btn-primary" jsf:action="#{cadastroCredorBean.deletar(credor.id)}">Apagar</button></td>
+                                    <td><a href="#" class="btn btn-primary" jsf:action="#{cadastroCredorBean.deletar(credor.id)}" disabled="disabled">Apagar</a></td>
                                 </tr>
                             </c:forEach>
                         </form>
-                    </table>
+                        <small>*deleção desabilitada por questão de seguraça</small>
+                    </table>                   
                     <a href="./" class="btn btn-primary">Cadastrar Novo <span class="fas fa-plus-square"></span></a>
                 </div> 
             </ui:define>
