@@ -78,7 +78,7 @@ public class CadastroContasBean implements Serializable
     public void inserir() {
         credor = credorBean.retornaCredor(idCredor);
         conta.setFkCredor(credor);
-        //System.out.println(conta);
+        System.out.println(conta);
         dao.create(conta);        
     }
     
